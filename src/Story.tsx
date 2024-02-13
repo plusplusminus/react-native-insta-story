@@ -39,6 +39,7 @@ export const Story = ({
   avatarImageStyle,
   avatarWrapperStyle,
   avatarFlatListProps,
+  imageComponent,
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -121,6 +122,7 @@ export const Story = ({
           renderSwipeUpComponent={renderSwipeUpComponent}
           renderCloseComponent={renderCloseComponent}
           renderTextComponent={renderTextComponent}
+          imageComponent={imageComponent}
           onClosePress={() => {
             setIsModalOpen(false);
             if (onClose) {

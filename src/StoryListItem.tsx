@@ -45,6 +45,7 @@ export const StoryListItem = ({
   storyImageStyle,
   storyAvatarImageStyle,
   storyContainerStyle,
+  imageComponent,
   ...props
 }: StoryListItemProps) => {
   const [load, setLoad] = useState<boolean>(true);
@@ -209,16 +210,13 @@ export const StoryListItem = ({
     >
       <SafeAreaView>
         <View style={styles.backgroundContainer}>
-          <Image
+          {imageComponent ? imageComponent :
+          (<Image
             onLoadEnd={() => start()}
             source={{ uri: content[current].story_image }}
             style={[styles.image, storyImageStyle]}
-          />
-          {load && (
-            <View style={styles.spinnerContainer}>
-              <ActivityIndicator size="large" color={'white'} />
-            </View>
-          )}
+          />)}
+          
         </View>
       </SafeAreaView>
       <View style={styles.flexCol}>
